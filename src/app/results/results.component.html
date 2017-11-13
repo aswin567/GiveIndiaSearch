@@ -1,0 +1,22 @@
+<div class="col-sm-4 col-md-3 card-conatiner" *ngFor="let state of data" [@itemAnim]>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title class="class-elipse" [matTooltip]="state.title">
+        <strong class="movie-title">{{state.title}}</strong>
+      </mat-card-title>
+      <mat-card-subtitle>{{state.year}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="movie-poster">
+      <img [src]="state.posterUrl" alt="{{state.title}} poster is not available due to server issue.">
+    </div>
+    <mat-card-content class="plot">
+      <p class="class-elipse" [matTooltip]="state.plot">
+        {{state.plot}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="col-xs-12 no-result" [hidden]="data.length !== 0">
+  <i class="fa fa-frown-o" aria-hidden="true"></i>
+  <h1>No Results Found</h1>
+</div>

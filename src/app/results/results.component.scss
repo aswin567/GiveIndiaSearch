@@ -1,0 +1,53 @@
+.no-result{
+    text-align: center;
+    color:rgba(13, 142, 118, 0.5098039215686274);
+    h1{
+        font-weight: 600;
+        font-size: 49px;
+    }
+    i{
+        font-size: 62px;
+    }
+}
+.card-conatiner{
+    padding: 10px;
+}
+.movie-poster{
+    width: 260px;
+    height: 360px;
+    overflow: hidden;
+    background:#eeeeee9c;
+    background-size: contain; 
+    img{
+        max-width: 100%;
+        height: auto; 
+        font-size: 39px;
+        color: #9f9f9f;
+        font-weight: bold;
+    }
+}
+.class-elipse{
+    white-space: nowrap; 
+    overflow: hidden;
+    padding-left: 14px;
+    text-overflow: ellipsis; 
+}
+.movie-title{
+    font-size: 16px;
+    color: #676767;
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        left: -14px;
+        top: 0;
+        height: 100%;
+        width: 8px;
+        border-right: 3px solid #094ff9;
+        background: #e61515;
+    }
+}
+.plot{
+    padding-top: 11px;
+    color: #676767;
+}

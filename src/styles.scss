@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;	
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// .search-middle{
+//     .mat-input-placeholder, .mat-form-field-placeholder{
+//         transition: .3s visbility ease-in-out;
+//         visibility: hidden !important;
+//     }
+//     .mat-empty, .mat-form-field-empty{
+//         transition: .3s visbility ease-in-out;
+//         visibility: visible !important;
+//     }
+
+// }
+
+.hide{
+    display: none !important;
+}
+.mat-simple-snackbar-action {
+    color: #009277;
+    font-weight: 500;
+}
+.mat-input-ripple {
+    background-color: #009277;
+}
+.mat-card-header{
+    overflow: hidden;
+}
+.mat-focused .mat-input-placeholder {
+    color: #009277;
+}

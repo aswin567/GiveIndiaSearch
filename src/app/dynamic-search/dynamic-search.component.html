@@ -1,0 +1,55 @@
+<div class="app-container">
+  <div class=" search search-middle" [class.search-top]="searchCtrl.value">
+    <div class="row">
+      <div class="col-xs-12">
+        <img src="../assets/Images/homeLogo.png" width="20%">
+      </div>
+    </div>
+    <div class="row">
+      <div class="fullWidth" [class.col-xs-12]="searchCtrl.value" [class.col-md-6]="searchCtrl.value" [class.col-sm-6]="searchCtrl.value">
+        <mat-form-field class="search-input">
+          <input matInput type="text" placeholder="Type make your search" [formControl]="searchCtrl" (keypress)="onSearch($event.key)"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-xs-6 col-sm-3 col-md-3 pageination" *ngIf="searchCtrl.value">
+        <i class="fa fa-angle-left" aria-hidden="true" [class.hide]="index<1" (click)="getNextPage(searchCtrl.value, $event.value, index-1)"></i>
+        <label cla>Page :{{index+1}}</label>
+        <i class="fa fa-angle-right" aria-hidden="true" [class.hide]="isLastPage" (click)="getNextPage(searchCtrl.value, $event.value, index+1)"></i>
+      </div>
+      <div class="col-xs-6 col-sm-3 col-md-3 " *ngIf="searchCtrl.value">
+        <mat-form-field class="pull-left half-select">
+          <mat-select placeholder="Results No" (change)=getSearchByPage() [(ngModel)]="numberOfResults">
+            <mat-option value="10">10</mat-option>
+            <mat-option value="20">20</mat-option>
+            <mat-option value="30">30</mat-option>
+            <mat-option value="40">40</mat-option>
+            <mat-option value="50">50</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="pull-right  half-select">
+          <mat-select placeholder="Sort By" (change)=getSort(searchCtrl.value,$event.value) [formControl]="sortCtrl">
+            <mat-option value="name"> Name
+              <i class="fa fa-angle-up option-icon" aria-hidden="true"></i>
+            </mat-option>
+            <mat-option value="nameReverse"> Name
+              <i class="fa fa-angle-down option-icon" aria-hidden="true"></i>
+            </mat-option>
+            <mat-option value="date"> Date
+              <i class="fa fa-angle-up option-icon" aria-hidden="true"></i>
+            </mat-option>
+            <mat-option value="dateReverse"> Date
+              <i class="fa fa-angle-down option-icon" aria-hidden="true"></i>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="results" *ngIf="searchCtrl.value">
+    <div class="results">
+      <app-results [data]="movies"></app-results>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
