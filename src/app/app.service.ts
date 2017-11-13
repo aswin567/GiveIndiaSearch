@@ -8,6 +8,7 @@ export class AppService {
 
   constructor(private http: Http) { }
 
+  // Function to make service call to get data
   getData(sort?): any {
     return this.http.get('../assets/Data/db.json').map(res => {
       const array = res.json();

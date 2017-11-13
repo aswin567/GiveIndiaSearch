@@ -8,6 +8,8 @@ import { Movie } from './movie';
 export class DynamicSearchService {
 
   constructor(private baseService: AppService) { }
+
+  // This service make the search happens refining the data.
   public getSearchData(search): any {
     const infomsg = '';
     return this.baseService.getData().map(outputData => {
@@ -15,12 +17,7 @@ export class DynamicSearchService {
       controlInputData = this.filterStates(search.keyWord, controlInputData);
       const firstIndex = search.lastindex * search.numbeOfResults;
       const pagedControlInputData = controlInputData.slice(firstIndex, firstIndex + search.numbeOfResults);
-      // controlInputData.map((data) => {
-      //     if (data.id > search.lastindex && data.id < (search.lastindex + 50)) {
-      //       return data;
-      //     }
-      // });
-      if (search.sort) {
+        if (search.sort) {
         if (search.sort === 'date') {
           pagedControlInputData.sort(function (a, b) { return a.year - b.year; });
         } else if (search.sort === 'name') {
@@ -41,6 +38,7 @@ export class DynamicSearchService {
     });
   }
 
+  // Function to filter the data
   filterStates(name: string, data: any[]): Movie[] {
     return data.filter(state =>
       state.title.toLowerCase().indexOf(name.toLowerCase()) === 0);

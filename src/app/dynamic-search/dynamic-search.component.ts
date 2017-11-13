@@ -29,11 +29,15 @@ export class DynamicSearchComponent implements OnInit {
   }
   ngOnInit() {
   }
-  onSearch(value) {
+
+  // Key function to make the search.
+  onSearch(value): void {
     this.index = 0;
     this.sortCtrl.reset();
     this.getData(value, this.index);
   }
+
+  // To get the data according to the conditions.
   getData(filter, index, sort?): void {
     const search = {
       keyWord: filter,
@@ -50,15 +54,21 @@ export class DynamicSearchComponent implements OnInit {
       });
     });
   }
+
+  // funtion to make the sorted list.
   getSort(filter, sort): void {
     this.index = 0;
     this.getData(filter, this.index, sort);
   }
+
+  // Get the next page data.
   getNextPage(filter, sort, index): void {
     const lastIndex = index;
     this.index = index;
     this.getData(filter, lastIndex, sort);
   }
+
+  // Adjust the number of results in the page
   getSearchByPage(): void {
     const msg = 'Make search again to get more results in page';
     this.matSNacksBar.open(msg, 'Ok', {

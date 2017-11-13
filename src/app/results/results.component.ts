@@ -17,6 +17,8 @@ import { trigger, style, transition, animate, group } from '@angular/animations'
     ])
   ]
 })
+
+
 export class ResultsComponent implements OnInit {
   _data: any[] = [];
   @Input() set data(v: any[]) {
@@ -32,11 +34,5 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSort(value) {
-    if (value === 'date') {
-      this.data.sort(function (a, b) { return a.year - b.year; });
-    } else {
-      this.data.sort(function (a, b) { return a.title - b.title; });
-    }
-  }
+
 }
