@@ -13,7 +13,7 @@ if you have faced any issue while installation try this code
 
 Go to the project folder (GiveIndiaSearch), open command prompt here  run the command `npm install`
 
-###Environment setup is completed
+Environment setup is completed.
 
 
 ## Development server
