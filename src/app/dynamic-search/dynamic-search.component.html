@@ -8,7 +8,7 @@
     <div class="row">
       <div class="fullWidth" [class.col-xs-12]="searchCtrl.value" [class.col-md-6]="searchCtrl.value" [class.col-sm-6]="searchCtrl.value">
         <mat-form-field class="search-input">
-          <input matInput type="text" placeholder="Type make your search" [formControl]="searchCtrl" (keypress)="onSearch($event.key)"
+          <input matInput type="text" placeholder="Type make your search" [formControl]="searchCtrl"  (keyup)="onSearch($event.target.value)"
           />
         </mat-form-field>
       </div>
